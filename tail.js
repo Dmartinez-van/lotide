@@ -8,14 +8,16 @@ const assertEqual = function(actual, expected) {
 
 const tail = function(item) {
   let tailArray = [];
-  tailArray.push(item.slice(1));
+  for (let i = 1; i < item.length; i++) {
+    tailArray.push(item[i]);
+  }
   return tailArray;
 };
 
 const words = ["Yo Yo", "Lighthouse", "Labs"];
 tail(words);
 assertEqual(words.length, 3);
+assertEqual(tail(words).length, 2);
+assertEqual(tail(words), ["Lighthouse", "Labs"]);
 
-// Test Code
-//const result = tail(["Hello", "Lighthouse", "Labs"]);
 //assertEqual(result, ["Lighthouse", "Labs"]); // => will always fail!
