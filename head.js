@@ -7,7 +7,11 @@ const assertEqual = function(actual, expected) {
 };
 
 const head = function(item) {
-  return item[0];
+  if (typeof(item) === 'object') {
+    return item[0];
+  } else {
+    return item;
+  }
 };
 
 // Test Code
@@ -16,7 +20,7 @@ const head = function(item) {
 // assertEqual("David", "david");
 // assertEqual("avacado", 1);
 // assertEqual("Tomato", "Tomato");
-// assertEqual(1.5, 1.5000);
+assertEqual(head(1.5), 1.5000);
 
 assertEqual(head([5,6,7]), 5);
 assertEqual(head(["Hello", "Lighthouse", "Labs"]), "Hello");
