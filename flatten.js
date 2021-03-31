@@ -34,8 +34,11 @@ const flatten = function(nestedArr) {
   // If it is an Array, bring the elements of which out and insert it into the outter array at the same index
   
   for (let i = 0; i < nestedArr.length; i++) {
+    console.log("Loop i", i);
+    console.log("nest arr length", nestedArr.length);
     if (Array.isArray(nestedArr[i])) {
       for (let j = nestedArr[i].length - 1; j > -1; j--) {
+        console.log("loop j", j);
         nestedArr.splice(i + 1, 0, nestedArr[i][j]);
       }
       nestedArr.splice(i, 1);
@@ -44,4 +47,5 @@ const flatten = function(nestedArr) {
   return nestedArr;
 };
 
-console.log(flatten([1,[2,3,"Hello"],4,5,[6,7,8,9]]));
+// console.log(flatten([1,[2,3,"Hello"],4,5,[6,7,[3,["potato","Carrot"]],8,9]]));
+console.log(flatten([1,2,[3,[4,"Hello"]]]));
