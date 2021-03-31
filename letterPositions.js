@@ -23,12 +23,26 @@ const eqArrays = function(arr1, arr2) {
   return true;
 };
 
+const letterPositions = function(sentence) {
+  const results = {};
+
+  for (let index in sentence) {
+    if (sentence[index] !== " ") {
+      if (Array.isArray(results[sentence[index]])) {
+        results[sentence[index]].push(Number(index));
+      } else {
+        const tempArr = [];
+        tempArr.push(Number(index));
+        results[sentence[index]] = tempArr;
+      }
+    }
+  }
+  return results;
+};
+
+
 // Test Code
-assertArraysEqual([1, 2, 3], [1, 2, "david"]); // expect fail
-assertArraysEqual([1, 2, 3], [1, 2, 3]); // expect passed
-assertArraysEqual([1, 2, 3], [1, 2, "3"]); // expect fail
-assertArraysEqual([1, 2, 3], [1, 2, 2]); // expect fail
-assertArraysEqual([1, 2, 3], [1, 2, 3, 4]); // expect fail
-assertArraysEqual(["david", 2, 3], ["david", 2, 3]); // expect passed
-assertArraysEqual([1, 2, 3], [1, 2, 3, null]); // expect fail
-assertArraysEqual([1, 2, 3], [1, 2, 3, undefined]); // expect fail
+assertArraysEqual(letterPositions("hello").e,[1]);
+// console.log(letterPositions("hello").e);
+assertArraysEqual(letterPositions("hello there").e,[1,8,10]);
+// letterPositions("He llo my name is potato head");
