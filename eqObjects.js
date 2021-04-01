@@ -64,9 +64,6 @@ assertEqual(eqObjects(ab, abd), false); // false
 const dab = {d: "3", a: "3", b: "me"};
 assertEqual(eqObjects(dab, abd), false); // false
 
-const dadAlt = {a: "3", d: "1", d: "me"};
-assertEqual(eqObjects(dab, dadAlt), false); // false
-
 const loy = {l: "3", o: "1", y: "me"};
 assertEqual(eqObjects(dab, loy), false); // false
 
