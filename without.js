@@ -1,28 +1,3 @@
-const assertEqual = function(actual, expected) {
-  if (eqArrays(actual, expected)) {
-    console.log(`😀🟢 Assertion Passed: [${actual}] === [${expected}]`);
-  } else {
-    console.log(`🤬🔴 Assertion Failed: [${actual}] === [${expected}]`);
-  }
-};
-
-const eqArrays = function(arr1, arr2) {
-  // If arrays are not same length, they are not the exact same.
-  if (arr1.length !== arr2.length) {
-    return false;
-  }
-
-  // Check same indicies between the arrays, must be exactly equal to pass.
-  let i = 0;
-  while (i < arr1.length) {
-    if (arr1[i] !== arr2[i]) {
-      return false;
-    }
-    i++;
-  }
-  return true;
-};
-
 const without = function(source, itemsToRemove) {
   // This provides a COPY of the source array. It should not affect the source array via referencing.
   // Googled the spread operator after this morning's lecture. I initially wanted to use .slice(), but seems that is the old method since ES6 was released.
@@ -45,7 +20,4 @@ const without = function(source, itemsToRemove) {
   return reduced;
 };
 
-// Test Code for without
-// console.log(without(["drum",4,"kit",3],["1","2",3,4,"drum"]));
-assertEqual(without(["drum",4,"kit",3],["1","2",3,4,"drum"]), ["kit"]); // expect passed;
-assertEqual(without(["chocolate", "mints", "lollipop", "soda", "taffy"],["taffy", "mints", "mint chocolate"]), ["chocolate", "lollipop", "soda"]); // expect passed;
+module.exports = without;

@@ -1,28 +1,3 @@
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`😀🟢 Assertion Passed: [${actual}] === [${expected}]`);
-  } else {
-    console.log(`🤬🔴 Assertion Failed: [${actual}] !== [${expected}]`);
-  }
-};
-
-const eqArrays = function(arr1, arr2) {
-  // If arrays are not same length, they are not the exact same.
-  if (arr1.length !== arr2.length) {
-    return false;
-  }
-
-  // Check same indicies between the arrays, must be exactly equal to pass.
-  let i = 0;
-  while (i < arr1.length) {
-    if (arr1[i] !== arr2[i]) {
-      return false;
-    }
-    i++;
-  }
-  return true;
-};
-
 // Returns true if both objects have identifcal keys with identical values.
 // Otherwise you get back a big far false!
 const eqObjects = function(obj1, obj2) {
@@ -52,26 +27,4 @@ const eqObjects = function(obj1, obj2) {
   return true;
 };
 
-
-// Test Code
-const ab = {a: "1", b: "2"};
-const ba = {b: "2", a: "1"};
-assertEqual(eqObjects(ab, ba), true); // true
-
-const abd = {a: "1", b: "2", d: 3};
-assertEqual(eqObjects(ab, abd), false); // false
-
-const dab = {d: "3", a: "3", b: "me"};
-assertEqual(eqObjects(dab, abd), false); // false
-
-const loy = {l: "3", o: "1", y: "me"};
-assertEqual(eqObjects(dab, loy), false); // false
-
-const cd = { c: "1", d: ["2", 3], e: [3, 4], newkey: "some string"};
-const dc = { d: ["2", 3], newkey: "some string", c: "1", e: [3, 4]};
-eqObjects(cd, dc); // => true
-assertEqual(eqObjects(cd, dc), true);
-
-const cd2 = { c: "1", d: ["2", 3, 4] };
-eqObjects(cd, cd2); // => false
-assertEqual(eqObjects(cd, cd2), false);
+module.exports = eqObjects;

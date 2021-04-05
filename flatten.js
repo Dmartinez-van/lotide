@@ -1,28 +1,3 @@
-const assertEqual = function(actual, expected) {
-  if (eqArrays(actual, expected)) {
-    console.log(`😀🟢 Assertion Passed: [${actual}] === [${expected}]`);
-  } else {
-    console.log(`🤬🔴 Assertion Failed: [${actual}] === [${expected}]`);
-  }
-};
-
-const eqArrays = function(arr1, arr2) {
-  // If arrays are not same length, they are not the exact same.
-  if (arr1.length !== arr2.length) {
-    return false;
-  }
-
-  // Check same indicies between the arrays, must be exactly equal to pass.
-  let i = 0;
-  while (i < arr1.length) {
-    if (arr1[i] !== arr2[i]) {
-      return false;
-    }
-    i++;
-  }
-  return true;
-};
-
 const flatten = function(nestedArr) {
 
   // Check if the parameter is indeed an array
@@ -47,5 +22,4 @@ const flatten = function(nestedArr) {
   return nestedArr;
 };
 
-// console.log(flatten([1,[2,3,"Hello"],4,5,[6,7,[3,["potato","Carrot"]],8,9]]));
-console.log(flatten([1,2,[3,[4,"Hello"]]]));
+module.exports = flatten;
