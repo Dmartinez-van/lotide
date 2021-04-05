@@ -1,6 +1,6 @@
 {
   "name": "@dmartinez-van/lotide",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "project for LHL w1",
   "main": "assertArraysEqual.js",
   "directories": {
