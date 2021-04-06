@@ -3,14 +3,15 @@ const eqArrays = function(arr1, arr2) {
   if (arr1.length !== arr2.length) {
     return false;
   }
-
-  // Check same indicies between the arrays, must be exactly equal to pass.
-  let i = 0;
-  while (i < arr1.length) {
-    if (arr1[i] !== arr2[i]) {
-      return false;
+  
+  for (const index in arr1) {
+    if (Array.isArray(arr1[index]) && Array.isArray(arr2[index])) {
+      return eqArrays(arr1[index], arr2[index]);
+    } else {
+      if (arr1[index] !== arr2[index]) {
+        return false;
+      }
     }
-    i++;
   }
   return true;
 };
